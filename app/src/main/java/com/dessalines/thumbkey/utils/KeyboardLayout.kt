@@ -12,6 +12,7 @@ import com.dessalines.thumbkey.keyboards.KB_DE_THUMBKEY_MULTILINGUAL
 import com.dessalines.thumbkey.keyboards.KB_DE_TYPESPLIT
 import com.dessalines.thumbkey.keyboards.KB_ENEO_MESSAGEEASE_SYMBOLS
 import com.dessalines.thumbkey.keyboards.KB_EN_CZ_THUMBKEY
+import com.dessalines.thumbkey.keyboards.KB_EN_DOUBLE_SYMBOLS
 import com.dessalines.thumbkey.keyboards.KB_EN_EE_THUMBKEY
 import com.dessalines.thumbkey.keyboards.KB_EN_IT_THUMBKEY
 import com.dessalines.thumbkey.keyboards.KB_EN_MESSAGEEASE
@@ -32,6 +33,7 @@ import com.dessalines.thumbkey.keyboards.KB_EN_TWO_HANDS_SYMBOLS
 import com.dessalines.thumbkey.keyboards.KB_EN_TWO_HANDS_SYMBOLS_NUMBERS
 import com.dessalines.thumbkey.keyboards.KB_EN_TYPESPLIT
 import com.dessalines.thumbkey.keyboards.KB_EOENDE_THUMBKEY
+import com.dessalines.thumbkey.keyboards.KB_ES_CA_MESSAGEEASE
 import com.dessalines.thumbkey.keyboards.KB_ES_CA_THUMBKEY
 import com.dessalines.thumbkey.keyboards.KB_ES_EO_THUMBKEY
 import com.dessalines.thumbkey.keyboards.KB_ES_MESSAGEEASE
@@ -80,6 +82,7 @@ import com.dessalines.thumbkey.keyboards.KB_RU_MESSAGEEASE_SYMBOLS
 import com.dessalines.thumbkey.keyboards.KB_RU_THUMBKEY
 import com.dessalines.thumbkey.keyboards.KB_RU_THUMBKEY_SYMBOLS
 import com.dessalines.thumbkey.keyboards.KB_SK_THUMBKEY
+import com.dessalines.thumbkey.keyboards.KB_SV_MESSAGEEASE
 import com.dessalines.thumbkey.keyboards.KB_SV_THUMBKEY
 import com.dessalines.thumbkey.keyboards.KB_T9
 import com.dessalines.thumbkey.keyboards.KB_TR_THUMBKEY
@@ -174,4 +177,7 @@ enum class KeyboardLayout(val index: Int, val keyboardDefinition: KeyboardDefini
     KZThumbKey(82, KB_KZ_THUMBKEY),
     ENMIThumbKey(83, KB_EN_MI_THUMBKEY),
     ENMIThumbKeySymbols(84, KB_EN_MI_THUMBKEY_SYMBOLS),
+    ESCAMessageEase(85, KB_ES_CA_MESSAGEEASE),
+    SVMessageEase(86, KB_SV_MESSAGEEASE),
+    ENDoubleSymbols(87, KB_EN_DOUBLE_SYMBOLS),
 }

@@ -1,3 +1,36 @@
+# Thumb-Key 2.6.6 (2024-01-07)
+
+## What's Changed
+
+- Update ITThumbKey.kt by @flauta in https://github.com/dessalines/thumb-key/pull/603
+- Adding svenska messageease. Fixes #601 by @dessalines in https://github.com/dessalines/thumb-key/pull/605
+- double symbols prototype by @alensiljak in https://github.com/dessalines/thumb-key/pull/608
+- Upgrading compose to 1.5.7 by @dessalines in https://github.com/dessalines/thumb-key/pull/609
+- Added Italian translation by @flauta in https://github.com/dessalines/thumb-key/pull/610
+- Scaling down uppercase letters. Fixes #109 by @dessalines in https://github.com/dessalines/thumb-key/pull/611
+- Fix slide jumping after 1k characters. Fixes #566 by @dessalines in https://github.com/dessalines/thumb-key/pull/612
+
+## New Contributors
+
+- @alensiljak made their first contribution in https://github.com/dessalines/thumb-key/pull/608
+
+**Full Changelog**: https://github.com/dessalines/thumb-key/compare/2.6.5...2.6.6
+
+# Thumb-Key 2.6.5 (2024-01-02)
+
+## What's Changed
+
+- Add layout English/Te Reo Māori. by @sslater11 in https://github.com/dessalines/thumb-key/pull/593
+- Add Russian localization by @artemnefedov in https://github.com/dessalines/thumb-key/pull/595
+- Update mathematical keyboard layout by @Kuna42 in https://github.com/dessalines/thumb-key/pull/594
+- Adding ES_CA_MESSAGEEASE keyboard. by @dessalines in https://github.com/dessalines/thumb-key/pull/598
+
+## New Contributors
+
+- @artemnefedov made their first contribution in https://github.com/dessalines/thumb-key/pull/595
+
+**Full Changelog**: https://github.com/dessalines/thumb-key/compare/2.6.4...2.6.5
+
 # Thumb-Key 2.6.4 (2023-12-18)
 
 ## What's Changed
