@@ -32,6 +32,37 @@
   </p>
 </p>
 
+<!-- prettier-ignore-start -->
+
+<!-- toc -->
+
+- [About Thumb-Key](#about-thumb-key)
+  * [Features](#features)
+- [User Guide](#user-guide)
+  * [Emoji Key](#emoji-key)
+  * [Symbols / Letters Key](#symbols--letters-key)
+  * [Slide gestures](#slide-gestures)
+  * [Drag-and-return](#drag-and-return)
+  * [Ghost keys](#ghost-keys)
+  * [Coming from MessagEase Keyboard Tips](#coming-from-messagease-keyboard-tips)
+  * [Other](#other)
+- [Thumb-Key Design](#thumb-key-design)
+  * [A History of Phone Keyboards](#a-history-of-phone-keyboards)
+    + [When phone keyboards became Keyloggers](#when-phone-keyboards-became-keyloggers)
+    + [MessagEase](#messagease)
+  * [Thumb-Key Letter Positions](#thumb-key-letter-positions)
+  * [Built With](#built-with)
+- [Installation / Releases](#installation--releases)
+- [Contributing](#contributing)
+- [Support / Donate](#support--donate)
+  * [Crypto](#crypto)
+- [Social / Contact](#social--contact)
+- [Android IME Resources](#android-ime-resources)
+
+<!-- tocstop -->
+
+<!-- prettier-ignore-end -->
+
 ## About Thumb-Key
 
 Thumb-Key is a _privacy-conscious_ smart keyboard, made specifically for your thumbs.
@@ -42,13 +73,13 @@ Instead of relying on profit-driven, privacy-offending word and sentence predict
 
 As the key positions get ingrained into your muscle memory, eventually you'll be able to approximate the fast speeds of [touch-typing](https://en.m.wikipedia.org/wiki/Touch_typing), your eyes never having to leave the text edit area.
 
-This project is a follow-up to the now unmaintained (and closed-source) [MessageEase Keyboard](https://www.exideas.com/ME/), which is its main inspiration.
+This project is a follow-up to the now unmaintained (and closed-source) [MessagEase Keyboard](https://www.exideas.com/ME/), which is its main inspiration.
 
 ### Features
 
 - Highly configurable.
-- Customizeable sizing, ThumbKey and MessageEase layouts, dynamic / Material v3 themes, animations, haptic feedback, and audio feedback.
-- Open source, [AGPL License](/LICENSE).
+- Customizeable sizing, ThumbKey and MessagEase layouts, dynamic / Material v3 themes, animations, haptic feedback, and audio feedback.
+- Open-source, [AGPL License](/LICENSE).
 
 ## User Guide
 
@@ -56,28 +87,29 @@ This project is a follow-up to the now unmaintained (and closed-source) [Message
 - **Swipe up** or **down** on `A` to capitalize. (If you changed the layout, the button next to `#`)  
   <img width=60px height=60px src="https://i.postimg.cc/Znt2Ft9G/thumbkey-1-1.png">
 - **Double tap** the space bar to type a comma, triple tap to type a period. More taps have more punctuation.
-- **Swipe left** on the backspace key to delete whole words to the left of the cursor.
+- **Swipe left** or **long press** on the backspace key to delete whole words to the left of the cursor.
 - **Swipe right** on the backspace key to delete whole words to the right of the cursor.
 - **Swipe left** or **right** on the spacebar to move the cursor by 1 character.
+- **Long press** the return key to insert a line break
 
 ### Emoji Key
 
-- **Tap** to access the emoji picker
-- **Swipe up** to configure Thumb-key
-- **Swipe right** to change keyboard position
-- **Swipe down** to access IME switcher (switch between Thumb-key and other keyboards)
+- **Tap** to access the emoji picker.
+- **Swipe up** to configure Thumb-key.
+- **Swipe right** to change keyboard position.
+- **Swipe down** to access IME switcher (switch between Thumb-key and other keyboards).
 - **Swipe left** to cycle between selected layouts (languages).
 - **Swipe to bottom-left** to toggle voice input. Requires [FUTO Voice Input](https://play.google.com/store/apps/details?id=org.futo.voiceinput).
 
-### Symbol (`#`) Key
+### Symbols / Letters Key
 
-- **Tap** to access numbers & symbols
-- **Swipe to top-left** to select all
+- **Tap** to access numbers & symbols. **Tap again** to return to letters.
+- **Swipe to top-left** to select all.
 - **Swipe up** to copy - If nothing is selected, all the text will be copied.
 - **Swipe to top-right** to cut - If nothing is selected, all the text will be selected and cut.
-- **Swipe right** to redo
-- **Swipe down** to paste
-- **Swipe left** to undo
+- **Swipe right** to redo.
+- **Swipe down** to paste.
+- **Swipe left** to undo.
 
 ### Slide gestures
 
@@ -97,6 +129,19 @@ Enabling `Backspace: Allow normal swipes to work with slide gestures`, in keyboa
 
 - Swipe left to delete whole words to the left of the cursor.
 - Swipe right to delete whole words to the right of the cursor.
+
+### Drag-and-return
+
+- You can type the opposite-case letter by dragging away from, then back to the original key.
+- Clockwise and counter-clockwise drags can be configured to type the opposite-case letter, or the equivalent center key on the numeric layout.
+
+### Ghost keys
+
+Enabling `Ghost keys` in keyboard settings will enable swiping hidden symbol keys without switching to the numeric layout.
+
+### Coming from MessagEase Keyboard Tips
+
+- For those use to tapping on the hand key to hide the MessagEase Keyboard and make more screen real estate available, this can be done by using the Android back key or on Android 10 and higher using the guesture navigation for back.
 
 ### Other
 
@@ -121,15 +166,15 @@ The lack of innovation on phone keyboard design, is best explained by the _poten
 
 As of today, phone keyboards are in such an abysmal state of privacy, that there aren't many keyboards left that can guarantee **not to be logging all of your keystrokes.**
 
-#### MessageEase
+#### MessagEase
 
 As a testament to the stunning lack of innovation on both desktop and phone keyboards, the _QWERTY_ layout from the 1880s is still the dominant layout, even on smartphones in the 21st century.
 
-One company named Exideas created a keyboard app called [MessageEase](https://www.exideas.com/ME/), which relied on the original large 9-key grid of old phones, and managed to achieve comparable fast typing speeds to other keyboards, without relying on big-data-powered word-prediction.
+One company named Exideas created a keyboard app called [MessagEase](https://www.exideas.com/ME/), which relied on the original large 9-key grid of old phones, and managed to achieve comparable fast typing speeds to other keyboards, without relying on big-data-powered word-prediction.
 
-[Much research went into MessageEase's design](https://www.exideas.com/ME/ICMI2003Paper.pdf), and many of its users can do > 50 words per minute.
+[Much research went into MessagEase's design](https://www.exideas.com/ME/ICMI2003Paper.pdf), and many of its users can do > 50 words per minute.
 
-MessageEase is unfortunately unmaintained, and Thumb-Key uses a better alternating-thumb layout letter position (although the original MessageEase Keyboard layout is available in the settings).
+MessagEase is unfortunately unmaintained, and Thumb-Key uses a better alternating-thumb layout letter position (although the original MessagEase Keyboard layout is available in the settings).
 
 ### Thumb-Key Letter Positions
 
@@ -150,28 +195,9 @@ MessageEase is unfortunately unmaintained, and Thumb-Key uses a better alternati
 - [F-Droid](https://f-droid.org/en/packages/com.dessalines.thumbkey/)
 - [Google Play](https://play.google.com/store/apps/details?id=com.dessalines.thumbkey)
 
-## How do I add my language or layout?
+## Contributing
 
-I'd be happy to accept additions to add more languages, and layouts. To start:
-
-- Read the letter position guidelines above. This means you'll likely need a letter frequency chart for text written in your language.
-  - The general rule is: popular vowels on the right, bottom to top, consonants on the left.
-- Copy [this file](https://github.com/dessalines/thumb-key/blob/main/app/src/main/java/com/dessalines/thumbkey/keyboards/ENThumbKey.kt), or another sample keyboard from the same folder.
-  - Change the characters to whatever you'd like.
-  - This file contains both a _shifted_, and _non-shifted_ keyboard, so make sure you take care of both.
-  - You can also add or subtract columns if you want, but the layout must remain a grid. I **highly recommend** sticking with the 3x3 layout.
-- Add the new keyboard to the [KeyboardLayout.kt file](https://github.com/dessalines/thumb-key/blob/main/app/src/main/java/com/dessalines/thumbkey/utils/KeyboardLayout.kt), with a new higher index.
-- Either open a pull request, or an issue, linking your new keyboard file. I'll handle the rest of the work.
-
-## Theming guide
-
-To add a custom theme:
-
-- Use google's [Material 3 custom theme generator](https://m3.material.io/theme-builder#/custom), and save your `Theme.kt` file.
-- Copy the theme into `Color.kt` like the others.
-- Add the theme to the `ThemeColor` enum in `Types.kt`
-- Add a translation string in `strings.xml` for your theme name.
-- Add the theme to the `colorPairs` in `Theme.kt`
+See [Contributing.md](CONTRIBUTING.md) for how to add keyboard layouts, and themes.
 
 ## Support / Donate
 
@@ -187,7 +213,6 @@ Your donations directly support full-time development, and help keep this mainta
 - bitcoin: `1Hefs7miXS5ff5Ck5xvmjKjXf5242KzRtK`
 - ethereum: `0x400c96c96acbC6E7B3B43B1dc1BB446540a88A01`
 - monero: `41taVyY6e1xApqKyMVDRVxJ76sPkfZhALLTjRvVKpaAh2pBd4wv9RgYj1tSPrx8wc6iE1uWUfjtQdTmTy2FGMeChGVKPQuV`
-- cardano: `addr1q858t89l2ym6xmrugjs0af9cslfwvnvsh2xxp6x4dcez7pf5tushkp4wl7zxfhm2djp6gq60dk4cmc7seaza5p3slx0sakjutm`
 
 ## Social / Contact
 

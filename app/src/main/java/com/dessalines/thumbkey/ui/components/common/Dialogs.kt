@@ -31,25 +31,24 @@ import dev.jeziellago.compose.markdowntext.MarkdownText
 val DONATION_MARKDOWN =
     """
     ### Support Thumb-Key
-    
-    [Thumb-Key](https://github.com/dessalines/thumb-key) is free, 
-    open-source software, meaning no spying, keylogging, or advertising,
-    ever. 
-    
-    No one likes recurring donations, but they've proven to be the only 
-    way open source software like Thumb-Key can stay alive. If you find
-    yourself using Thumb-Key every day, please consider donating:
+    [Thumb-Key](https://github.com/dessalines/thumb-key) is free, open-source software, meaning no spying, keylogging, or advertising, ever.
 
+    No one likes recurring donations, but they've proven to be the only way open-source software like Thumb-Key can stay alive. If you find yourself using Thumb-Key every day, please consider donating:
     - [Support on Liberapay](https://liberapay.com/dessalines).
     - [Support on Patreon](https://www.patreon.com/dessalines).
-
+    ---
+    
     """.trimIndent()
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ShowChangelog(appSettingsViewModel: AppSettingsViewModel) {
     val ctx = LocalContext.current
-    val lastVersionCodeViewed = appSettingsViewModel.appSettings.observeAsState().value?.lastVersionCodeViewed
+    val lastVersionCodeViewed =
+        appSettingsViewModel.appSettings
+            .observeAsState()
+            .value
+            ?.lastVersionCodeViewed
 
     // Make sure its initialized
     lastVersionCodeViewed?.also { lastViewed ->
@@ -62,7 +61,7 @@ fun ShowChangelog(appSettingsViewModel: AppSettingsViewModel) {
             val scrollState = rememberScrollState()
             val markdown by appSettingsViewModel.changelog.collectAsState()
             LaunchedEffect(appSettingsViewModel) {
-                appSettingsViewModel.updateChangelog()
+                appSettingsViewModel.updateChangelog(ctx)
             }
 
             AlertDialog(
@@ -76,7 +75,6 @@ fun ShowChangelog(appSettingsViewModel: AppSettingsViewModel) {
                         val markdownText = DONATION_MARKDOWN + markdown
                         MarkdownText(
                             markdown = markdownText,
-                            color = MaterialTheme.colorScheme.onBackground,
                             linkColor = MaterialTheme.colorScheme.primary,
                         )
                     }

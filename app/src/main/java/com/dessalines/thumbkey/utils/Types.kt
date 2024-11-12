@@ -1,9 +1,8 @@
 package com.dessalines.thumbkey.utils
 
 import android.view.KeyEvent
-import androidx.compose.runtime.Composable
+import androidx.annotation.StringRes
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import com.dessalines.thumbkey.R
 
 data class KeyboardDefinitionModes(
@@ -24,9 +23,7 @@ data class KeyboardDefinitionSettings(
         return autoCapitalizers.contentEquals(other.autoCapitalizers)
     }
 
-    override fun hashCode(): Int {
-        return autoCapitalizers.contentHashCode()
-    }
+    override fun hashCode(): Int = autoCapitalizers.contentHashCode()
 }
 
 data class KeyboardDefinition(
@@ -42,42 +39,130 @@ data class KeyboardC(
 
 data class KeyItemC(
     val center: KeyC,
-    val swipes: Map<SwipeDirection, KeyC>? = null,
+    val left: KeyC? = null,
+    val topLeft: KeyC? = null,
+    val top: KeyC? = null,
+    val topRight: KeyC? = null,
+    val right: KeyC? = null,
+    val bottomRight: KeyC? = null,
+    val bottom: KeyC? = null,
+    val bottomLeft: KeyC? = null,
     val nextTapActions: List<KeyAction>? = null,
     val widthMultiplier: Int = 1,
     val backgroundColor: ColorVariant = ColorVariant.SURFACE,
     val swipeType: SwipeNWay = SwipeNWay.EIGHT_WAY,
     val slideType: SlideType = SlideType.NONE,
-)
+    val longPress: KeyAction? = null,
+) {
+    fun getSwipe(dir: SwipeDirection?) =
+        when (dir) {
+            null -> null
+            SwipeDirection.LEFT -> left
+            SwipeDirection.TOP_LEFT -> topLeft
+            SwipeDirection.TOP -> top
+            SwipeDirection.TOP_RIGHT -> topRight
+            SwipeDirection.RIGHT -> right
+            SwipeDirection.BOTTOM_RIGHT -> bottomRight
+            SwipeDirection.BOTTOM -> bottom
+            SwipeDirection.BOTTOM_LEFT -> bottomLeft
+        }
+}
 
 data class KeyC(
-    val display: KeyDisplay?,
-    val capsModeDisplay: KeyDisplay? = null,
     val action: KeyAction,
-    val color: ColorVariant = ColorVariant.SECONDARY,
+    val swipeReturnAction: KeyAction? = null,
+    val display: KeyDisplay? =
+        when (action) {
+            is KeyAction.CommitText -> KeyDisplay.TextDisplay(action.text)
+            else -> null
+        },
+    val capsModeDisplay: KeyDisplay? = null,
     val size: FontSizeVariant = FontSizeVariant.SMALL,
-)
+    val color: ColorVariant =
+        when (size) {
+            FontSizeVariant.LARGE -> ColorVariant.PRIMARY
+            else -> ColorVariant.SECONDARY
+        },
+) {
+    constructor(
+        text: String,
+        displayText: String = text,
+        swipeReturnAction: KeyAction? = null,
+        display: KeyDisplay = KeyDisplay.TextDisplay(displayText),
+        capsModeDisplay: KeyDisplay? = null,
+        size: FontSizeVariant = FontSizeVariant.SMALL,
+        color: ColorVariant =
+            when (size) {
+                FontSizeVariant.LARGE -> ColorVariant.PRIMARY
+                else -> ColorVariant.SECONDARY
+            },
+    ) : this(
+        KeyAction.CommitText(text),
+        swipeReturnAction,
+        display,
+        capsModeDisplay,
+        size,
+        color,
+    )
+}
 
 sealed class KeyDisplay {
-    class TextDisplay(val text: String) : KeyDisplay()
+    class TextDisplay(
+        val text: String,
+    ) : KeyDisplay()
 
-    class IconDisplay(val icon: ImageVector) : KeyDisplay()
+    class IconDisplay(
+        val icon: ImageVector,
+    ) : KeyDisplay()
 }
 
 sealed class KeyAction {
-    class CommitText(val text: String) : KeyAction()
+    class CommitText(
+        val text: String,
+    ) : KeyAction()
 
-    class SendEvent(val event: KeyEvent) : KeyAction()
+    class SendEvent(
+        val event: KeyEvent,
+    ) : KeyAction()
 
-    class ReplaceLastText(val text: String, val trimCount: Int = 2) : KeyAction()
+    class ReplaceLastText(
+        val text: String,
+        val trimCount: Int = 2,
+    ) : KeyAction()
 
-    class ToggleShiftMode(val enable: Boolean) : KeyAction()
+    class ToggleShiftMode(
+        val enable: Boolean,
+    ) : KeyAction()
 
-    class ToggleNumericMode(val enable: Boolean) : KeyAction()
+    class ToggleCurrentWordCapitalization(
+        val toggleUp: Boolean,
+    ) : KeyAction()
 
-    class ToggleEmojiMode(val enable: Boolean) : KeyAction()
+    class ToggleNumericMode(
+        val enable: Boolean,
+    ) : KeyAction()
 
-    class ComposeLastKey(val text: String) : KeyAction()
+    class ToggleEmojiMode(
+        val enable: Boolean,
+    ) : KeyAction()
+
+    class ComposeLastKey(
+        val text: String,
+    ) : KeyAction()
+
+    sealed class MoveKeyboard : KeyAction() {
+        class ToPosition(
+            val position: KeyboardPosition,
+        ) : KeyAction()
+
+        data object Left : KeyAction()
+
+        data object Right : KeyAction()
+
+        data object CycleLeft : KeyAction()
+
+        data object CycleRight : KeyAction()
+    }
 
     data object DeleteWordBeforeCursor : KeyAction()
 
@@ -103,24 +188,18 @@ sealed class KeyAction {
 
     data object SwitchLanguage : KeyAction()
 
-    data object SwitchPosition : KeyAction()
-
     data object SwitchIME : KeyAction()
 
     data object SwitchIMEVoice : KeyAction()
 }
 
-enum class CursorAccelerationMode(private val stringId: Int) {
+enum class CursorAccelerationMode(
+    @StringRes val resId: Int,
+) {
     LINEAR(R.string.slide_cursor_acceleration_linear),
     QUADRATIC(R.string.slide_cursor_acceleration_quadratic),
     THRESHOLD(R.string.slide_cursor_acceleration_threshold_acceleration),
     CONSTANT(R.string.slide_cursor_acceleration_constant),
-    ;
-
-    @Composable
-    fun title(): String {
-        return stringResource(this.stringId)
-    }
 }
 
 enum class KeyboardMode {
@@ -155,19 +234,17 @@ enum class FontSizeVariant {
     SMALLEST,
 }
 
-enum class ThemeMode(private val stringId: Int) {
+enum class ThemeMode(
+    @StringRes val resId: Int,
+) {
     System(R.string.system),
     Light(R.string.light),
     Dark(R.string.dark),
-    ;
-
-    @Composable
-    fun title(): String {
-        return stringResource(this.stringId)
-    }
 }
 
-enum class ThemeColor(private val stringId: Int) {
+enum class ThemeColor(
+    @StringRes val resId: Int,
+) {
     Dynamic(R.string.dynamic),
     Green(R.string.green),
     Pink(R.string.pink),
@@ -178,24 +255,15 @@ enum class ThemeColor(private val stringId: Int) {
     HighContrast(R.string.high_contrast),
     HighContrastColorful(R.string.high_contrast_colorful),
     Ancom(R.string.ancom),
-    ;
-
-    @Composable
-    fun title(): String {
-        return stringResource(this.stringId)
-    }
+    Matrix(R.string.matrix),
 }
 
-enum class KeyboardPosition(private val stringId: Int) {
+enum class KeyboardPosition(
+    @StringRes val resId: Int,
+) {
     Center(R.string.center),
     Right(R.string.right),
     Left(R.string.left),
-    ;
-
-    @Composable
-    fun title(): String {
-        return stringResource(this.stringId)
-    }
 }
 
 enum class SwipeNWay {
@@ -234,4 +302,16 @@ data class Selection(
     fun right(index: Int) {
         end += index
     }
+}
+
+enum class CircularDirection {
+    Clockwise,
+    Counterclockwise,
+}
+
+enum class CircularDragAction(
+    @StringRes val resId: Int,
+) {
+    OppositeCase(R.string.send_oppsite_case),
+    Numeric(R.string.send_numeric),
 }

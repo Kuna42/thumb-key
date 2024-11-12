@@ -7,6 +7,7 @@
     <string name="dynamic">پویا</string>
     <string name="green">سبز</string>
     <string name="pink">صورتی</string>
+    <string name="matrix">ماتریکس-آمولد</string>
     <string name="srcery">سرسری</string>
     <string name="blue">آبی</string>
     <string name="dracula">دراکولا</string>
@@ -58,8 +59,6 @@
     <string name="copy">متن مورد نظر کپی شد</string>
     <string name="hide_letters">حروف را مخفی کنید</string>
     <string name="hide_symbols">نمادها را مخفی کنید</string>
-    <string name="save">ذخیره</string>
-    <string name="key_borders">حاشیه کلیدها</string>
     <string name="spacebar_multitaps">کلید فاصله چند ضربه ای</string>
     <string name="done">تمام</string>
 </resources>

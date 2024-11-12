@@ -7,6 +7,7 @@
     <string name="dynamic">Dynamique</string>
     <string name="green">Vert</string>
     <string name="pink">Rose</string>
+    <string name="matrix">Matrice-AMOLED</string>
     <string name="srcery">Srcery</string>
     <string name="blue">Bleu</string>
     <string name="dracula">Dracula</string>
@@ -28,7 +29,7 @@
     <string name="social">Réseaux sociaux</string>
     <string name="join_c_thumbkey">Rejoindre c/thumbkey</string>
     <string name="follow_me_mastodon">Me suivre sur Mastodon</string>
-    <string name="open_source">Open source</string>
+    <string name="open_source">Open-source</string>
     <string name="source_code">Code source</string>
     <string name="source_code_subtitle">Thumb-Key est un logiciel libre et open source, sous la licence GNU Affero General Public License v3.0</string>
     <string name="look_and_feel">Apparence</string>
@@ -69,12 +70,13 @@
     <string name="copy">Texte copié</string>
     <string name="hide_letters">Masquer les lettres</string>
     <string name="hide_symbols">Masquer les symboles</string>
-    <string name="save">Enregistrer</string>
-    <string name="key_borders">Bordure des touches</string>
     <string name="spacebar_multitaps">Barre d\'espace : appuis multiples</string>
     <string name="done">Fermer</string>
     <string name="backdrop">Arrière-plan du clavier</string>
     <string name="key_padding">Espacement des touches : %1$s</string>
     <string name="key_border_width">Bordure des touches : %1$s</string>
     <string name="key_radius">Arrondi des touches : %1$s</string>
+    <string name="key_non_square">Touches non carrées</string>
+    <string name="key_width">Largeur des touches : %1$s</string>
+    <string name="key_height">Hauteur des touches : %1$s</string>
 </resources>
